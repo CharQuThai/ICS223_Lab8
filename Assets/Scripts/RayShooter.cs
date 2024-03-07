@@ -8,8 +8,9 @@ public class RayShooter : MonoBehaviour
     [SerializeField]
     private Camera cam;
 
-    [SerializeField]
-    private int aimSize = 16;
+    //remobed in lab 8
+    //[SerializeField]
+    //private int aimSize = 16;
 
     // Start is called before the first frame update
     
@@ -17,9 +18,11 @@ public class RayShooter : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         
-        // hide the mouse cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // hide the mouse cursor //removed in lab 8
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+
+
     }
 
     // Update is called once per frame
@@ -60,7 +63,7 @@ public class RayShooter : MonoBehaviour
         Destroy(sphere);
     }
 
-    //void OnGUI()
+    //void OnGUI() //remobed in lab 8
     //{
     //    GUIStyle style = new GUIStyle();
     //    style.fontSize = aimSize;
