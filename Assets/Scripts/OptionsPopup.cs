@@ -23,8 +23,14 @@ public class OptionsPopup : MonoBehaviour
     public void OnSettingsButton()
     {
         Debug.Log("settings clicked");
+        if (uiController != null)
+        {
+            settingPopup.Open();
+        }
+
         Close();
-        settingPopup.Open();
+
+        
     }
     public void OnExitGameButton()
     {

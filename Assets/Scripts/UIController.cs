@@ -16,6 +16,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image crossHair;
 
     [SerializeField] private OptionsPopup optionsPopup;
+
+    [SerializeField] private SettingPopup settingPopup;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +29,37 @@ public class UIController : MonoBehaviour
     }
 
     // Update is called once per frame
+    //|| !settingPopup.IsActive()
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !optionsPopup.IsActive())
+        //if (Input.GetKeyDown(KeyCode.Escape) && !optionsPopup.IsActive())
+        //{
+        //    SetGameActive(false);
+        //    optionsPopup.Open();
+        //}
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SetGameActive(false);
-            optionsPopup.Open();
+            if (!optionsPopup.IsActive() && !settingPopup.IsActive())
+            {
+                SetGameActive(false);
+                optionsPopup.Open();
+            }
+            else if (optionsPopup.IsActive())
+            {
+                optionsPopup.Close();
+
+                if (settingPopup.IsActive())
+                {
+                    settingPopup.Close();
+                }
+
+                SetGameActive(true);
+            }
+            else if (settingPopup.IsActive())
+            {
+                settingPopup.Close();
+                optionsPopup.Open();
+            }
         }
     }
 
